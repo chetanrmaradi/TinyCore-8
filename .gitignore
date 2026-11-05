@@ -1,0 +1,15 @@
+# Icarus Verilog compiled simulation executables
+*_sim
+*.out
+*.exe
+*.vvp
+
+# GTKWave and waveform files are intentionally retained when useful
+# *.vcd
+
+# Editor and operating-system files
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
