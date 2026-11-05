@@ -1,7 +1,7 @@
 # TinyCore-8 — 8-Bit RISC Processor Design
 
 <p align="center">
-  <strong>A 90-Day Digital Design and Computer Architecture Project</strong>
+  <strong>Learn Digital Design. Build a Processor.</strong>
 </p>
 
 <p align="center">
@@ -13,142 +13,121 @@
 
 ## Overview
 
-**TinyCore-8** is a self-directed hardware design project focused on designing, implementing, simulating, and verifying an 8-bit RISC (Reduced Instruction Set Computer) processor using Verilog HDL.
+**TinyCore-8** is an open-source, beginner-friendly hardware design learning project. Its long-term engineering objective is to design, implement, simulate, and verify an 8-bit RISC (Reduced Instruction Set Computer) processor using Verilog HDL.
 
-The project follows a structured 90-day development roadmap, progressing from fundamental digital logic circuits to a complete processor architecture.
+The repository is intended to serve two purposes: a practical processor-design portfolio and a reproducible learning resource for students studying digital electronics, Verilog HDL, RTL design, and computer architecture.
 
-The primary objective is to gain practical experience in digital electronics, RTL design, sequential logic, computer architecture, and hardware verification.
+## Getting started
 
-## Project Objectives
+- [Windows installation and simulation guide](Getting-Started/Installation-Windows.md)
+- [Linux installation guide](Getting-Started/Installation-Linux.md)
 
-- Understand and implement fundamental digital logic circuits.
-- Develop combinational and sequential circuits using Verilog HDL.
-- Design an Arithmetic Logic Unit (ALU).
-- Implement registers, program counter, and memory units.
-- Develop an instruction decoder and control unit.
-- Integrate individual components into an 8-bit RISC processor.
-- Simulate and verify hardware functionality using testbenches.
-- Explore RTL synthesis and hardware design workflows.
+The examples use **Icarus Verilog** for compilation/simulation and **GTKWave** for waveform inspection.
 
-## Proposed Processor Architecture
+## Learning path
 
-The planned TinyCore-8 processor will contain:
+| Stage | Topics | Status |
+|---|---|---|
+| Day 1 | Logic gates and half adder | Completed |
+| Day 2 | Full adder, D flip-flop, and register fundamentals | In progress |
+| Foundations | Multiplexers, decoders, counters, and arithmetic circuits | Planned |
+| Processor blocks | ALU, register file, program counter, and memories | Planned |
+| CPU architecture | Instruction decoder, control unit, and datapath | Planned |
+| Integration | Processor execution, verification, and synthesis | Planned |
 
-| Component | Description |
+See [Day 1 learning notes](Day-01/README.md) for circuit summaries and exercises.
+
+## Proposed TinyCore-8 architecture
+
+The planned processor is an 8-bit data-path design with a 16-bit instruction format. The architecture is a design target and will be refined as implementation decisions are verified.
+
+| Component | Planned purpose |
 |---|---|
-| ALU | Performs arithmetic and logical operations |
-| Register File | Eight 8-bit general-purpose registers |
-| Program Counter | Stores the address of the next instruction |
-| Instruction Memory | Stores processor instructions |
-| Data Memory | Stores and retrieves data |
-| Control Unit | Decodes instructions and generates control signals |
-| Flags | Stores relevant ALU status information |
+| ALU | Arithmetic and logical operations |
+| Register file | Eight 8-bit general-purpose registers |
+| Program counter | Address of the next instruction |
+| Instruction memory | Stores program instructions |
+| Data memory | Stores data |
+| Control unit | Decodes instructions and generates control signals |
+| Flags | Records selected ALU status results |
 
-**Proposed architecture:** 8-bit data path with 16-bit instruction format.
-
-## Planned Instruction Set
+## Planned instruction set
 
 | Instruction | Function |
 |---|---|
 | LDI | Load immediate value |
-| ADD | Addition |
-| SUB | Subtraction |
-| AND | Bitwise AND |
-| OR | Bitwise OR |
-| XOR | Bitwise XOR |
-| LOAD | Load data from memory |
-| STORE | Store data in memory |
+| ADD / SUB | Addition / subtraction |
+| AND / OR / XOR | Bitwise logic |
+| LOAD / STORE | Read / write data memory |
 | JMP | Unconditional jump |
 | JZ | Jump if zero |
 | HALT | Stop processor execution |
 
-*Instruction encoding and implementation details will be documented as development progresses.*
+Instruction encodings and exact semantics will be documented when the architecture is implemented.
 
-## Development Roadmap
+## Tools
 
-| Phase | Planned Work | Status |
-|---|---|---|
-| Day 1 | Basic logic gates and half adder | Completed |
-| Day 2 | Full adder and sequential logic | In Progress |
-| Days 3–15 | Combinational and arithmetic circuits | Planned |
-| Days 16–30 | Registers, counters and ALU | Planned |
-| Days 31–45 | Processor datapath and memory | Planned |
-| Days 46–60 | Instruction decoder and control unit | Planned |
-| Days 61–75 | Processor integration | Planned |
-| Days 76–90 | Verification, debugging and synthesis | Planned |
+- **Verilog HDL** — hardware description and RTL design
+- **Icarus Verilog** — compilation and simulation
+- **GTKWave** — waveform analysis
+- **Visual Studio Code** — development environment
+- **Yosys** — planned RTL synthesis and hardware analysis
+- **Git and GitHub** — version control and collaboration
 
-## Tools and Technologies
-
-- **Verilog HDL** — Hardware description and RTL design.
-- **Icarus Verilog** — HDL compilation and simulation.
-- **GTKWave** — Digital waveform analysis.
-- **Visual Studio Code** — Development environment.
-- **Yosys** — Planned RTL synthesis and hardware analysis.
-- **Git and GitHub** — Version control and project documentation.
-
-## Repository Structure
+## Repository map
 
 ```text
 TinyCore-8/
-│
 ├── README.md
-│
+├── .gitignore
+├── LICENSE
+├── CONTRIBUTING.md
+├── Getting-Started/
+│   ├── Installation-Windows.md
+│   └── Installation-Linux.md
 ├── Day-01/
-│   ├── and_gate.v
-│   ├── tb_and_gate.v
-│   ├── or_gate.v
-│   ├── tb_or_gate.v
-│   ├── not_gate.v
-│   ├── tb_not_gate.v
-│   ├── xor_gate.v
-│   ├── tb_xor_gate.v
-│   ├── half_adder.v
-│   └── tb_half_adder.v
-│
-├── Day-02/
-│   ├── full_adder.v
-│   ├── tb_full_adder.v
-│   └── ...
-│
-└── Documentation/
+│   └── README.md
+└── Day-02/
+    └── Verilog modules and testbenches
 ```
 
-*The repository structure will expand as new modules are implemented.*
+The circuit folders will be organised into topic-based subfolders as the learning material grows.
 
-## Simulation Workflow
+## Simulation workflow
 
-The project uses Icarus Verilog for simulation and GTKWave for waveform inspection.
-
-Example commands:
+From the folder containing a design and its testbench:
 
 ```powershell
-iverilog -o simulation module.v testbench.v
-vvp simulation
-gtkwave dump.vcd
+iverilog -o circuit_sim circuit.v tb_circuit.v
+vvp circuit_sim
+gtkwave circuit.vcd
 ```
 
-Each module is tested independently using a dedicated testbench before integration into larger systems.
+Replace the example filenames with the circuit and testbench being simulated. Generated executables are local build outputs and should not be committed.
 
-## Learning Outcomes
+## How each lesson is documented
 
-Through this project, the intended learning outcomes include:
+Where applicable, each circuit lesson aims to include:
+1. Beginner-friendly theory and purpose.
+2. Truth table and logic equations.
+3. Verilog design source.
+4. A testbench covering relevant input cases.
+5. Reproduction commands and simulation evidence.
+6. Exercises and known limitations.
 
-- RTL coding and hardware modelling.
-- Combinational and sequential logic design.
-- Timing and clock-edge behaviour.
-- Functional verification using testbenches.
-- Digital system integration.
-- Fundamentals of processor architecture.
-- Introduction to synthesis and hardware implementation.
+A module should only be described as verified when its testbench has been run and its observed behaviour matches the expected result.
 
-## Project Progress
+## Contributing
 
-Development is ongoing. Individual modules, simulation results, testbenches, and documentation will be added incrementally.
+Student contributions, corrections, and documentation improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Author
 
-**Chetankumar R Maradi**
-
+**Chetankumar R Maradi**  
 Electronics and Communication Engineering  
 Vidyavardhaka College of Engineering, Mysuru
 
@@ -157,6 +136,4 @@ Vidyavardhaka College of Engineering, Mysuru
 
 ---
 
-<p align="center">
-  <strong>Learning by Building. Designing by Understanding.</strong>
-</p>
+<p align="center"><strong>Learning by Building. Designing by Understanding.</strong></p>
